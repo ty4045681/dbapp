@@ -138,6 +138,7 @@ module.exports = {
     },
     compress: true,
     port: 8080,
-    open: true
+    open: true,
+    allowedHosts: 'all'
   }
 };
