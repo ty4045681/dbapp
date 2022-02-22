@@ -412,6 +412,7 @@
 								</div>
 							</div>
 							
+
 							<div id="validation-step-2" class="tab-pane" role="tabpanel" style="display: none;">
 								<div class="form-group">
 									<label class="form-label">First name
@@ -444,7 +445,12 @@
 									</label>
 								</div>
 							</div>
-						</div><div class="toolbar toolbar-bottom" role="toolbar" style="text-align: right;"><button class="btn sw-btn-prev disabled" type="button">Previous</button><button class="btn sw-btn-next" type="button">Next</button><button class="btn btn-submit btn-primary" type="button">Finish</button></div>
+						</div>
+						<div class="toolbar toolbar-bottom" role="toolbar" style="text-align: right;">
+							<button class="btn sw-btn-prev disabled" type="button">Previous</button>
+							<button class="btn sw-btn-next" type="button">Next</button>
+							<button class="btn btn-submit btn-primary" type="button">Finish</button>
+						</div>
 					</form>
 				</div>
 			</main>
@@ -483,10 +489,49 @@
 					});
 			});
 			$("#Time").datetimepicker();
-			$("#smartwizard-default-primary").smartWizard({
-				theme: 'default',
-				showStepURLhash: false,
-			})
+			var $validationForm = $("#smartwizard-validation");
+			$validationForm.validate({
+				errorPlacement: function errorPlacement(error, element) {
+					$(element).parents(".error-placeholder").append(
+						error.addClass("invalid-feedback small d-block")
+					)
+				},
+				highlight: function(element) {
+					$(element).addClass("is-invalid");
+				},
+				unhighlight: function(element) {
+					$(element).removeClass("is-invalid");
+				},
+				// rules: {
+				// 	"wizard-confirm": {
+				// 		equalTo: "input[name=\"wizard-password\"]"
+				// 	}
+				// }
+			});
+			$validationForm
+				.smartWizard({
+					theme: "default",
+					autoAdjustHeight: false,
+					backButtonSupport: false,
+					useURLhash: false,
+					showStepURLhash: false,
+					toolbarSettings: {
+						toolbarExtraButtons: [$("<button class=\"btn btn-submit btn-primary\" type=\"button\">Finish</button>")]
+					}
+				})
+				.on("leaveStep", function(e, anchorObject, stepNumber, stepDirection) {
+					if (stepDirection === 1) {
+						return $validationForm.valid();
+					}
+					return true;
+				});
+			$validationForm.find(".btn-submit").on("click", function() {
+				if (!$validationForm.valid()) {
+					return;
+				}
+				alert("Great! The form is valid and ready to submit.");
+				return false;
+			});
 		});
 	</script>
 	<script>
