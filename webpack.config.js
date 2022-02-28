@@ -141,9 +141,4 @@ module.exports = {
     open: true,
     allowedHosts: 'all'
   },
-  resolve: {
-    fallback: {
-      fs: false
-    }
-  }
 };
