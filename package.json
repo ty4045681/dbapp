@@ -52,7 +52,8 @@
     "webpack": "5.56.1",
     "webpack-cli": "4.8.0",
     "webpack-dev-server": "4.3.0",
-    "webpack-remove-empty-scripts": "^0.7.1"
+    "webpack-remove-empty-scripts": "^0.7.1",
+    "pg": "8.7.3"
   },
   "dependencies": {
     "@babel/polyfill": "7.12.1",
@@ -84,6 +85,7 @@
     "select2": "4.0.13",
     "smartwizard": "5.1.1",
     "tempusdominus-bootstrap-4": "5.39.0",
-    "toastr": "2.1.4"
+    "toastr": "2.1.4",
+    "pg": "8.7.3"
   }
 }
