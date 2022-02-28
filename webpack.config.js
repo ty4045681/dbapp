@@ -6,6 +6,7 @@ const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const FileManagerPlugin = require("filemanager-webpack-plugin");
 const RemoveEmptyScriptsPlugin = require("webpack-remove-empty-scripts");
+const fs = require("fs");
 
 const opts = {
   rootDir: process.cwd(),
@@ -53,6 +54,14 @@ module.exports = {
     new Webpack.ProvidePlugin({
       $: "jquery",
       jQuery: "jquery"
+    }),
+    new Webpack.ProvidePlugin({
+      P: ["pg", "Pool"],
+      C: ["pg", "Client"]
+    }),
+    new Webpack.DefinePlugin({
+      connection_string: JSON.stringify('postgresql://info:show-password@app-3216da81-c71f-49cb-a924-b5a9c3582f4e-do-user-10360375-0.b.db.ondigitalocean.com:25060/info?sslmode=require'),
+      CA: JSON.stringify(fs.readFileSync('/Users/ethanharris/Library/Mobile Documents/com~apple~CloudDocs/Database/spark-4-1-000/bootstrap5/ca-certificate.crt').toString())
     }),
     // Copy fonts and images to dist
     new CopyWebpackPlugin({
@@ -141,4 +150,18 @@ module.exports = {
     open: true,
     allowedHosts: 'all'
   },
+  resolve: {
+    fallback: {
+      fs: false,
+      assert: false,
+      util: false,
+      dns: false,
+      net: false,
+      "pg-native": false,
+      crypto: false,
+      path: false,
+      stream: false,
+      tls: false
+    }
+  }
 };

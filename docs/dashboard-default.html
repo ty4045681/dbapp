@@ -649,7 +649,14 @@
 		
 	</script>
 	<script>
-		const pool = new Pool(config)
+		const config = {
+			connectionString: connection_string,
+			ssl: {
+				rejectUnauthorized: false,
+				ca: CA,
+			},
+		};
+		const pool = P(config)
 		pool.query('SELECT NOW()', (err, res) => {
 			console.log(err, res)
 			pool.end()
