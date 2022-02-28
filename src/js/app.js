@@ -30,3 +30,6 @@ import "./modules/vector-maps";
 
 // Tables
 import "./modules/datatables";
+
+// Database
+import "./modules/pg";

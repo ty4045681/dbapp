@@ -488,23 +488,40 @@
 																					<input type="search" class placeholder aria-controls="table">
 																				</label>
 																			</div>
-																			<table id="table" class="display nowrap dataTable dtr-inline collapsed" style="width: 100%;" aria-describedby="table_info">
-																				<thead>
-																					<tr>
-																						<th class="sorting sorting_asc" tabindex="0" aria-controls="table" rowspan="1" colspan="1" style="width: 120px;" aria-sort="ascending" aria-label="Name: activate to sort column descending">维修项目编号</th>
-																						<th class="sorting" tabindex="0" aria-controls="table" rowspan="1" colspan="1" style="width: 189px;" aria-label="Position: activate to sort column ascending">维修项目</th>
-																						<th class="sorting" tabindex="0" aria-controls="table" rowspan="1" colspan="1" style="width: 89px;" aria-label="Office: activate to sort column ascending">工时</th>
-																						<th class="dt-body-right sorting" tabindex="0" aria-controls="table" rowspan="1" colspan="1" style="width: 35px;" aria-label="Age: activate to sort column ascending">维修员编号</th>
-																						<th class="sorting" tabindex="0" aria-controls="table" rowspan="1" colspan="1" style="width: 80px;" aria-label="Start date: activate to sort column ascending">维修员工种</th>
-																					</tr>
-																				</thead>
-																			</table>
+																			<div id="wrapper">
+																				<table id="table" class="display nowrap dataTable dtr-inline collapsed" style="width: 100%;" aria-describedby="table_info">
+																					<thead>
+																						<tr>
+																							<th>选择</th>
+																							<th class="sorting sorting_asc" tabindex="0" aria-controls="table" rowspan="1" colspan="1" style="width: 120px;" aria-sort="ascending" aria-label="Name: activate to sort column descending">维修项目编号</th>
+																							<th class="sorting" tabindex="0" aria-controls="table" rowspan="1" colspan="1" style="width: 189px;" aria-label="Position: activate to sort column ascending">维修项目</th>
+																							<th class="sorting" tabindex="0" aria-controls="table" rowspan="1" colspan="1" style="width: 89px;" aria-label="Office: activate to sort column ascending">工时</th>
+																							<th class="dt-body-right sorting" tabindex="0" aria-controls="table" rowspan="1" colspan="1" style="width: 35px;" aria-label="Age: activate to sort column ascending">维修员编号</th>
+																							<th class="sorting" tabindex="0" aria-controls="table" rowspan="1" colspan="1" style="width: 80px;" aria-label="Start date: activate to sort column ascending">维修员工种</th>
+																						</tr>
+																					</thead>
+	
+																					<tbody>
+																						<td>
+																							<label class="checkbox-wrap checkbox-primary">
+																							<input type="checkbox" checked="">
+																							<span class="checkmark"></span>
+																							</label>
+																						</td>
+																						<td tabindex="0">012</td>
+																						<td>维修车头</td>
+																						<td>5</td>
+																						<td>012</td>
+																						<td>机修</td>
+																					</tbody>
+																				</table>
+																			</div>
 																		</div>
 																	</form>
 																</div>
 																<div class="modal-footer">
 																	<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">关闭</button>
-																	<button type="button" class="btn btn-primary">保存修改</button>
+																	<button type="button" class="btn btn-primary" id="save" data-bs-dismiss="modal">保存修改</button>
 																</div>
 															</div>
 														</div>
@@ -512,6 +529,10 @@
 													<button class="btn btn-secondary buttons-search" tabindex="1" aria-controls="datatables-buttons" type="button" data-bs-toggle="modal" data-bs-target="#database-search">
 														<span>搜索</span>
 													</button>
+
+													<div class="table" id="confirmedtable">
+
+													</div>
 												</div>
 											</div>
 										</div>
@@ -519,12 +540,7 @@
 								</div>
 							</div>
 							<div id="validation-step-4" class="tab-pane" role="tabpanel">
-								<div class="form-group">
-									<label class="custom-control custom-checkbox">
-										<input type="checkbox" class="custom-control-input">
-										<span class="custom-control-label">I agree with the Terms and Conditions</span>
-									</label>
-								</div>
+								<p>总费用：500元</p>
 							</div>
 						</div>
 					</form>
@@ -621,10 +637,14 @@
 				if (!$validationForm.valid()) {
 					return;
 				}
-				alert("Great! The form is valid and ready to submit.");
+				alert("已完成");
 				return false;
 			});
-
+			$validationForm.find("#save").on("click", function() {
+				var first = document.getElementById("wrapper");
+				var second = document.getElementById("confirmedtable");
+				second.innerHTML = first.innerHTML;
+			});
 		});
 		
 	</script>
