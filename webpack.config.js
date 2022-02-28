@@ -141,7 +141,9 @@ module.exports = {
     open: true,
     allowedHosts: 'all'
   },
-  node: {
-    fs: 'empty'
+  resolve: {
+    fallback: {
+      fs: false
+    }
   }
 };
