@@ -3,7 +3,7 @@
         {
             "pgOptions": {
                 "ssl": {
-                    "ca": "/Users/ethanharris/Downloads/ca-certificate.crt"
+                    "ca": "/Users/e4/Downloads/ca-certificate.crt"
                 }
             },
             "previewLimit": 50,

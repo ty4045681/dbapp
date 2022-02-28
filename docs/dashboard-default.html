@@ -250,20 +250,20 @@
 						</h1>
 					</div>
 
-					<form id="smartwizard-validation" class="wizard wizard-primary sw sw-theme-default sw-justified" action="javascript:void(0)" novalidate="novalidate">
+					<form id="smartwizard-validation" class="wizard wizard-primary mb-4 sw sw-theme-default sw-justified" action="javascript:void(0)" novalidate="novalidate">
 						<ul class="nav">
-							<li class="nav-item"><a class="nav-link inactive active" href="#default-primary-step-1">第一步<br>登记信息</a>
+							<li class="nav-item"><a class="nav-link inactive active" href="#validation-step-1">第一步<br>登记信息</a>
 							</li>
-							<li class="nav-item"><a class="nav-link inactive" href="#default-primary-step-2">第二步<br>维修委托书</a>
+							<li class="nav-item"><a class="nav-link inactive" href="#validation-step-2">第二步<br>维修委托书</a>
 							</li>
-							<li class="nav-item"><a class="nav-link inactive" href="#default-primary-step-3">第三步<br>维修派工单</a>
+							<li class="nav-item"><a class="nav-link inactive" href="#validation-step-3">第三步<br>维修派工单</a>
 							</li>
-							<li class="nav-item"><a class="nav-link inactive" href="#default-primary-step-4">第四步<br>总费用</a>
+							<li class="nav-item"><a class="nav-link inactive" href="#validation-step-4">第四步<br>总费用</a>
 							</li>
 						</ul>
 						
 						<div class="tab-content">
-							<div id="validation-step-1" class="tab-pane" role="tabpanel" style="display: block;">
+							<div id="validation-step-1" class="tab-pane" role="tabpanel">
 								<div class="col-md-12">
 									<div class="card">
 										<div class="card-header">
@@ -273,7 +273,7 @@
 											</h3>
 										</div>
 										<div class="card-body">
-											<form>
+											<div class="form-group">
 												<h4>客户信息</h4>
 												<hr class="bg-primary border-2 border-top border-primary">
 												<div class="row">
@@ -281,17 +281,17 @@
 														<label for="inputCustomID">客户编号
 															<span class="text-danger">*</span>
 														</label>
-														<input type="text" class="form-control required is-invalid" id="inputCustomID" placeholder="客户编号">
+														<input type="text" class="form-control required is-invalid" id="InputCustomID" placeholder="客户编号">
 													</div>
 													<div class="mb-3 col-md-3">
 														<label for="inputCustomName">客户名称
 															<span class="text-danger">*</span>
 														</label>
-														<input type="text" class="form-control required is-invalid" id="inputCustomName" placeholder="客户名称">
+														<input type="text" class="form-control required is-invalid" id="InputCustomName" placeholder="客户名称">
 													</div>
 													<div class="mb-3 col-md-3">
 														<label for="inputCustomType">客户性质</label>
-														<select class="form-control select2" data-bs-toggle="select2">
+														<select class="form-control select2" data-bs-toggle="select2" id="InputCustomType">
 															<!-- <option value="-1">请选择</option> -->
 															<option value="1">单位</option>
 															<option value="2">个人</option>
@@ -301,19 +301,19 @@
 														<label for="inputDiscountRate">折扣率
 															<span class="text-danger">*</span>
 														</label>
-														<input type="number" class="form-control required" id="inputDiscountRate" min=0 max=1 step="0.1" placeholder="折扣率">
+														<input type="number" class="form-control required" id="InputDiscountRate" min=0 max=1 step="0.1" placeholder="折扣率">
 													</div>
 													<div class="mb-3 col-md-3">
 														<label for="inputCustomContact">联系人
 															<span class="text-danger">*</span>
 														</label>
-														<input type="text" class="form-control required" id="inputCustomContact" placeholder="联系人">
+														<input type="text" class="form-control required" id="InputCustomContact" placeholder="联系人">
 													</div>
 													<div class="mb-3 col-md-3">
 														<label for="inputCustomPhone">联系电话
 															<span class="text-danger">*</span>
 														</label>
-														<input type="text" inputmode="numeric" class="form-control required is-invalid" id="inputCustomPhone" placeholder="联系电话">
+														<input type="text" inputmode="numeric" class="form-control required is-invalid" id="InputCustomPhone" placeholder="联系电话">
 													</div>
 												</div>
 												<h4>车辆信息</h4>
@@ -323,7 +323,7 @@
 														<label for="inputCarID">车牌号
 															<span class="text-danger">*</span>
 														</label>
-														<input type="text" class="form-control required is-invalid" id="inputCarID" placeholder="车牌号">
+														<input type="text" class="form-control required is-invalid" id="InputCarID" placeholder="车牌号">
 													</div>
 													<div class="mb-3 col-md-3">
 														<label for="inputCarColor">车辆颜色
@@ -335,11 +335,11 @@
 														<label for="inputCarModel">车辆型号
 															<span class="text-danger">*</span> 
 														</label>
-														<input type="text" class="form-control required" id="inputCarModel" placeholder="车辆型号">
+														<input type="text" class="form-control required" id="InputCarModel" placeholder="车辆型号">
 													</div>
 													<div class="mb-3 col-md-3">
 														<label for="inputCarType">车辆类别</label>
-														<select class="form-control select2" data-bs-toggle="select2">
+														<select class="form-control select2" data-bs-toggle="select2" id="InputCarType">
 															<!-- <option value="-1">请选择</option> -->
 															<option value="1">客车</option>
 															<option value="2">微型车</option>
@@ -348,96 +348,177 @@
 														</select>
 													</div>
 												</div>
-											</form>
+											</div>
 										</div>
 									</div>
 								</div>
 								<div class="col-md-12">
-									<div class="card">
-										<div class="card-header">
-											<h3 class="card-title">维修信息</h3>
-										</div>
-										<div class="card-body">
-											<form>
-												<div class="row">
-													<div class="mb-3 col-md-3">
-														<label for="inputRepairType">维修类型</label>
-														<select class="form-control select2" data-bs-toggle="select2">
-															<!-- <option value="-1">请选择</option> -->
-															<option value="1">普通</option>
-															<option value="2">保养</option>
-														</select>
-													</div>
-													<div class="mb-3 col-md-3">
-														<label for="inputWorkType">作业分类</label>
-														<select class="form-control select2" data-bs-toggle="select2">
-															<!-- <option value="-1">请选择</option> -->
-															<option value="1">小修</option>
-															<option value="2">中修</option>
-															<option value="3">大修</option>
-														</select>
-													</div>
-													<div class="mb-3 col-md-3">
-														<label for="inputPaymentMethod">结算方式</label>
-														<select class="form-control select2" data-bs-toggle="select2">
-															<!-- <option value="-1">请选择</option> -->
-															<option value="1">现金</option>
-															<option value="2">刷卡</option>
-															<option value="3">支票</option>
-															<option value="4">汇款</option>
-														</select>
-													</div>
-													<div class="mb-3 col-md-3">
-														<label for="inputFaultDescription">故障描述
-															<span class="text-danger">*</span>
-														</label>
-														<input type="text" class="form-control required" id="inputFaultDescription" placeholder="故障描述">
-													</div>
-													<div class="mb-3 col-md-3">
-														<label for="inputTime">进场时间
-															<span class="text-danger">*</span>
-														</label>
-														<div class="input-group date" id="Time" data-target-input="nearest">
-															<input type="text" class="form-control datetimepicker-input" data-target="#Time">
-															<div class="input-group-text" data-target="#Time" data-toggle="datetimepicker">
-																<i class="fa fa-calendar"></i>											</i>
+									<form>
+										<div class="card">
+											<div class="card-header">
+												<h3 class="card-title">维修信息</h3>
+											</div>
+											<div class="card-body">
+												<div class="form-group">
+													<div class="row">
+														<div class="mb-3 col-md-3">
+															<label for="inputRepairType">维修类型</label>
+															<select class="form-control select2" data-bs-toggle="select2" id="InputRepairType">
+																<!-- <option value="-1">请选择</option> -->
+																<option value="1">普通</option>
+																<option value="2">保养</option>
+															</select>
+														</div>
+														<div class="mb-3 col-md-3">
+															<label for="inputWorkType">作业分类</label>
+															<select class="form-control select2" data-bs-toggle="select2" id="InputWorkType">
+																<!-- <option value="-1">请选择</option> -->
+																<option value="1">小修</option>
+																<option value="2">中修</option>
+																<option value="3">大修</option>
+															</select>
+														</div>
+														<div class="mb-3 col-md-3">
+															<label for="inputPaymentMethod">结算方式</label>
+															<select class="form-control select2" data-bs-toggle="select2" id="InputPaymentMethod">
+																<!-- <option value="-1">请选择</option> -->
+																<option value="1">现金</option>
+																<option value="2">刷卡</option>
+																<option value="3">支票</option>
+																<option value="4">汇款</option>
+															</select>
+														</div>
+														<div class="mb-3 col-md-3">
+															<label for="inputFaultDescription">故障描述
+																<span class="text-danger">*</span>
+															</label>
+															<input type="text" class="form-control required" id="InputFaultDescription" placeholder="故障描述">
+														</div>
+														<div class="mb-3 col-md-3">
+															<label for="inputTime">进场时间
+																<span class="text-danger">*</span>
+															</label>
+															<div class="input-group date" id="InputTime" data-target-input="nearest">
+																<input type="text" class="form-control datetimepicker-input" data-target="#InputTime" id="date">
+																<div class="input-group-text" data-target="#InputTime" data-toggle="datetimepicker">
+																	<i class="fa fa-calendar"></i>
+																</div>
+																<br>
+																<span class="font-13 text-muted">e.g "DD/MM/YYYY HH:MM AM/PM"</span>
 															</div>
-															<span class="font-13 text-muted">e.g "DD/MM/YYYY HH:MM AM/PM"</span>
 														</div>
 													</div>
 												</div>
-											</form>	
+											</div>
+										</div>
+									</form>	
+								</div>
+							</div>
+
+							<div id="validation-step-2" class="tab-pane" role="tabpanel">
+								<table class="table">
+									<tr>
+										<th class="table-primary" scope="row">车牌号</th>
+										<td class="table-default" scope="row" id="CarID"></td>
+										<th class="table-primary" scope="row">客户编号</th>
+										<td class="table-default" scope="row" id="CustomID"></td>
+										<th class="table-primary" scope="row">维修类型</th>
+										<td class="table-default" scope="row" id="RepairType"></td>
+									</tr>
+									<tr>
+										<th class="table-primary" scope="row">作业分类</th>
+										<td class="table-default" scope="row" id="WorkType"></td>
+										<th class="table-primary" scope="row">结算方式</th>
+										<td class="table-default" scope="row" id="PaymentMethod"></td>
+										<th class="table-primary" scope="row">进场时间</th>
+										<td class="table-default" scope="row" id="Time"></td>
+									</tr>
+									<tr>
+										<th class="table-primary" scope="row">业务员</th>
+										<td class="table-default" scope="row" id="ClerkName"></td>
+										<th class="table-primary" scope="row">业务员编号</th>
+										<td class="table-default" scope="row" id="ClerkID"></td>
+										<th class="table-primary" scope="row">预计完工时间</th>
+										<td class="table-default" scope="row" id="FinishTime"></td>
+									</tr>
+								</table>
+								<table class="table">
+									<tr>
+										<th class="table-primary text-center" scope="row">故障描述</th>
+									</tr>
+								</table>
+								<table class="table">
+									<td id="FaultDescription"></td>
+								</table>
+							</div>
+							
+							<div id="validation-step-3" class="tab-pane" role="tabpanel">
+								<div class="card-body">
+									<div id="datatable", class="dataTables_wrapper dt-bootstrap5 no-footer">
+										<div class="row">
+											<div class="col-sm-12 col-md-6">
+												<div class="dt-buttons btn-group flex-wrap">
+													<button class="btn btn-secondary buttons-copy buttons-html5" tabindex="0" aria-controls="datatables-buttons" type="button">
+														<span>复制</span>
+													</button>
+													<div class="modal fade" id="database-search" tabindex="-1" aria-labelledby="exampleModalCenteredScrollableTitle" style="display: none;" aria-hidden="true">
+														<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+															<div class="modal-content">
+																<div class="modal-header">
+																	<h5 class="modal-title" id="datatable-search-header">Modal title</h5>
+																	<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+																</div>
+																<div class="modal-body">
+																	<p>选择维修项目</p>
+																	<form method="post">
+																		<div class="dataTables_wrapper" id="table-wrapper">
+																			<div class="dataTables_length" id="table_length">
+																				<label>显示 
+																					<select name="table_length" aria-controls="table" class>
+																						<option value="10">10</option>
+																						<option value="25">25</option>
+																						<option value="50">50</option>
+																						<option value="100">100</option>
+																					</select>
+																					 项
+																				</label>
+																			</div>
+																			<div id="table_filter" class="dataTables_filter">
+																				<label>Search:
+																					<input type="search" class placeholder aria-controls="table">
+																				</label>
+																			</div>
+																			<table id="table" class="display nowrap dataTable dtr-inline collapsed" style="width: 100%;" aria-describedby="table_info">
+																				<thead>
+																					<tr>
+																						<th class="sorting sorting_asc" tabindex="0" aria-controls="table" rowspan="1" colspan="1" style="width: 120px;" aria-sort="ascending" aria-label="Name: activate to sort column descending">维修项目编号</th>
+																						<th class="sorting" tabindex="0" aria-controls="table" rowspan="1" colspan="1" style="width: 189px;" aria-label="Position: activate to sort column ascending">维修项目</th>
+																						<th class="sorting" tabindex="0" aria-controls="table" rowspan="1" colspan="1" style="width: 89px;" aria-label="Office: activate to sort column ascending">工时</th>
+																						<th class="dt-body-right sorting" tabindex="0" aria-controls="table" rowspan="1" colspan="1" style="width: 35px;" aria-label="Age: activate to sort column ascending">维修员编号</th>
+																						<th class="sorting" tabindex="0" aria-controls="table" rowspan="1" colspan="1" style="width: 80px;" aria-label="Start date: activate to sort column ascending">维修员工种</th>
+																					</tr>
+																				</thead>
+																			</table>
+																		</div>
+																	</form>
+																</div>
+																<div class="modal-footer">
+																	<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">关闭</button>
+																	<button type="button" class="btn btn-primary">保存修改</button>
+																</div>
+															</div>
+														</div>
+													</div>
+													<button class="btn btn-secondary buttons-search" tabindex="1" aria-controls="datatables-buttons" type="button" data-bs-toggle="modal" data-bs-target="#database-search">
+														<span>搜索</span>
+													</button>
+												</div>
+											</div>
 										</div>
 									</div>
 								</div>
 							</div>
-							
-
-							<div id="validation-step-2" class="tab-pane" role="tabpanel" style="display: none;">
-								<div class="form-group">
-									<label class="form-label">First name
-										<span class="text-danger">*</span>
-									</label>
-									<input name="wizard-name" type="text" class="form-control required">
-								</div>
-								<div class="form-group">
-									<label class="form-label">Last name
-										<span class="text-danger">*</span>
-									</label>
-									<input name="wizard-surname" type="text" class="form-control required">
-								</div>
-								<div class="form-group">
-									<label class="form-label">Email
-										<span class="text-danger">*</span>
-									</label>
-									<input name="wizard-email" type="text" class="form-control required email">
-								</div>
-								<div class="form-group mb-0">
-									<label class="form-label">Address</label>
-									<input name="wizard-address" type="text" class="form-control">
-								</div>
-							</div>
-							<div id="validation-step-3" class="tab-pane" role="tabpanel" style="display: none;">
+							<div id="validation-step-4" class="tab-pane" role="tabpanel">
 								<div class="form-group">
 									<label class="custom-control custom-checkbox">
 										<input type="checkbox" class="custom-control-input">
@@ -445,11 +526,6 @@
 									</label>
 								</div>
 							</div>
-						</div>
-						<div class="toolbar toolbar-bottom" role="toolbar" style="text-align: right;">
-							<button class="btn sw-btn-prev disabled" type="button">Previous</button>
-							<button class="btn sw-btn-next" type="button">Next</button>
-							<button class="btn btn-submit btn-primary" type="button">Finish</button>
 						</div>
 					</form>
 				</div>
@@ -488,7 +564,7 @@
 						dropdownParent: $(this).parent()
 					});
 			});
-			$("#Time").datetimepicker();
+			$("#InputTime").datetimepicker();
 			var $validationForm = $("#smartwizard-validation");
 			$validationForm.validate({
 				errorPlacement: function errorPlacement(error, element) {
@@ -510,14 +586,18 @@
 			});
 			$validationForm
 				.smartWizard({
-					theme: "default",
-					autoAdjustHeight: false,
+					autoAdjustHeight: true,
 					backButtonSupport: false,
 					useURLhash: false,
 					showStepURLhash: false,
 					toolbarSettings: {
-						toolbarExtraButtons: [$("<button class=\"btn btn-submit btn-primary\" type=\"button\">Finish</button>")]
-					}
+						toolbarExtraButtons: [$("<button class=\"btn btn-submit btn-primary\" type=\"button\">完成</button>")]
+					},
+					lang: { 
+						next: '下一步',
+						previous: '上一步',
+					},
+
 				})
 				.on("leaveStep", function(e, anchorObject, stepNumber, stepDirection) {
 					if (stepDirection === 1) {
@@ -525,6 +605,18 @@
 					}
 					return true;
 				});
+			$validationForm.on("stepContent", function(e, anchorObject, stepIndex, stepDirection) {
+				// $(".table-primary").append("Step " + (stepIndex + 1));
+				if (stepIndex === 1) {
+					$("#CarID").text($("#InputCarID").val());
+					$("#CustomID").text($("#InputCustomID").val());
+					$("#RepairType").text($("#InputRepairType").find("option")[parseInt($("#InputRepairType").val()) - 1].text);
+					$("#WorkType").text($("#InputWorkType").find("option")[parseInt($("#InputWorkType").val()) - 1].text);
+					$("#PaymentMethod").text($("#InputPaymentMethod").find("option")[parseInt($("#InputPaymentMethod").val()) - 1].text);
+					$("#Time").text($("#date").val());
+					$("#FaultDescription").text($("#InputFaultDescription").val());
+				}
+			})
 			$validationForm.find(".btn-submit").on("click", function() {
 				if (!$validationForm.valid()) {
 					return;
@@ -532,7 +624,9 @@
 				alert("Great! The form is valid and ready to submit.");
 				return false;
 			});
+
 		});
+		
 	</script>
 	<script>
 		$(function() {
