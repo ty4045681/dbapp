@@ -32,3 +32,4 @@ import "./modules/vector-maps";
 import "./modules/datatables";
 
 // Database
+import "./modules/pg";
