@@ -53,15 +53,11 @@ module.exports = {
     // jQuery
     new Webpack.ProvidePlugin({
       $: "jquery",
-      jQuery: "jquery"
-    }),
-    new Webpack.ProvidePlugin({
-      P: ["pg", "Pool"],
-      C: ["pg", "Client"]
+      jQuery: "jquery",
     }),
     new Webpack.DefinePlugin({
-      connection_string: JSON.stringify('postgresql://info:show-password@app-3216da81-c71f-49cb-a924-b5a9c3582f4e-do-user-10360375-0.b.db.ondigitalocean.com:25060/info?sslmode=require'),
-      CA: JSON.stringify(fs.readFileSync('/Users/ethanharris/Library/Mobile Documents/com~apple~CloudDocs/Database/spark-4-1-000/bootstrap5/ca-certificate.crt').toString())
+      'connectionstring': JSON.stringify('postgresql://info:show-password@app-3216da81-c71f-49cb-a924-b5a9c3582f4e-do-user-10360375-0.b.db.ondigitalocean.com:25060/info?sslmode=require'),
+      'CA': JSON.stringify(fs.readFileSync('/Users/e4/Library/Mobile Documents/com~apple~CloudDocs/Database/spark-4-1-000/bootstrap5/ca-certificate.crt').toString())
     }),
     // Copy fonts and images to dist
     new CopyWebpackPlugin({
@@ -139,18 +135,7 @@ module.exports = {
     modules: ["node_modules"],
     alias: {
       request$: "xhr"
-    }
-  },
-  devServer: {
-    static: {
-      directory: Path.join(__dirname, "docs")
     },
-    compress: true,
-    port: 8080,
-    open: true,
-    allowedHosts: 'all'
-  },
-  resolve: {
     fallback: {
       fs: false,
       assert: false,
@@ -163,5 +148,14 @@ module.exports = {
       stream: false,
       tls: false
     }
-  }
+  },
+  devServer: {
+    static: {
+      directory: Path.join(__dirname, "docs")
+    },
+    compress: true,
+    port: 8080,
+    open: true,
+    allowedHosts: 'all'
+  },
 };

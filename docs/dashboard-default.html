@@ -645,23 +645,23 @@
 				var second = document.getElementById("confirmedtable");
 				second.innerHTML = first.innerHTML;
 			});
+			const config = {
+				connectionString: connectionstring,
+				ssl: {
+					rejectUnauthorized: false,
+					ca: CA, 
+				},
+			};
+			const pool = Pool.connect(config);
+			pool.query('SELECT NOW()', (err, res) => {
+				console.log(err, res)
+				pool.end()
+			});
+
 		});
 		
 	</script>
-	<script>
-		const config = {
-			connectionString: connection_string,
-			ssl: {
-				rejectUnauthorized: false,
-				ca: CA,
-			},
-		};
-		const pool = P(config)
-		pool.query('SELECT NOW()', (err, res) => {
-			console.log(err, res)
-			pool.end()
-		})
-	</script>
+
 	<script>
 		$(function() {
 			$('#datetimepicker-dashboard').datetimepicker({
